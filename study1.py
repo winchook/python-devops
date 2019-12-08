@@ -60,6 +60,8 @@ def get_run(m,n):
 #return可以在调用的地方接收,这里的n就会传给a
 a = get_run("aaa",30)
 print(a)
+print("mmm")
+print("mmm")
 
 #装饰器最大的优点在于不需要修改被装饰函数的逻辑,逻辑可以写在装饰器里面
 
