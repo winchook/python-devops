@@ -38,31 +38,49 @@
 
 #####################################
 #下面使用装饰器写一个对get_run函数的装饰器,用于检测m,n是不是int类型
-def wap(func):
-    def inner(*args, **kwargs):
-        print("checked:", args, kwargs)
-        #args是一个元组，所以需要将元组的值取出来
-        m = args[0]
-        n = args[1]
-        if not (type(m) == int and type(n) == int):
-            #return会结束掉内层函数inner
-            return ("parameter type error")
-        res = func(*args, **kwargs) #执行被装饰函数
-        return res
-    return inner
+# def wap(func):
+#     def inner(*args, **kwargs):
+#         print("checked:", args, kwargs)
+#         #args是一个元组，所以需要将元组的值取出来
+#         m = args[0]
+#         n = args[1]
+#         if not (type(m) == int and type(n) == int):
+#             #return会结束掉内层函数inner
+#             return ("parameter type error")
+#         res = func(*args, **kwargs) #执行被装饰函数
+#         return res
+#     return inner
+#
+# @wap
+# def get_run(m,n):
+#     print(m+n)
+#     #注意:函数遇到return后,后面语句不再执行了
+#     return(m+n)
+#
+# #return可以在调用的地方接收,这里的n就会传给a
+# a = get_run("aaa",30)
+# print(a)
 
-@wap
-def get_run(m,n):
-    print(m+n)
-    #注意:函数遇到return后,后面语句不再执行了
-    return(m+n)
-
-#return可以在调用的地方接收,这里的n就会传给a
-a = get_run("aaa",30)
-print(a)
-print("mmm")
-print("mmm")
 
 #装饰器最大的优点在于不需要修改被装饰函数的逻辑,逻辑可以写在装饰器里面
+########################################
 
+#装饰器第二个例子,计算程序运行时间
+import time
+def warp(func):
+    def inner(*args, **kwargs):
+        start_time = time.time()
+        res = func(*args, **kwargs)  #执行装饰函数
+        end_time = time.time()
+        return res, end_time - start_time
+    return inner
+
+@warp
+def get_run():
+    time.sleep(2)
+    print('hello')
+    return 'running....'
+
+a = get_run()
+print(a)
 
