@@ -37,7 +37,7 @@
 # print(a)
 
 #####################################
-#下面使用装饰器写一个对get_run函数的装饰器,用于检测m,n是不是int类型
+# 下面使用装饰器写一个对get_run函数的装饰器,用于检测m,n是不是int类型
 # def wap(func):
 #     def inner(*args, **kwargs):
 #         print("checked:", args, kwargs)
@@ -62,24 +62,29 @@
 # print(a)
 
 
-#装饰器最大的优点在于不需要修改被装饰函数的逻辑,逻辑可以写在装饰器里面
+# 装饰器最大的优点在于不需要修改被装饰函数的逻辑,逻辑可以写在装饰器里面
 ########################################
 
-#装饰器第二个例子,计算程序运行时间
+# 装饰器第二个例子,计算程序运行时间
 import time
+
+
 def warp(func):
     def inner(*args, **kwargs):
         start_time = time.time()
-        res = func(*args, **kwargs)  #执行装饰函数
+        res = func(*args, **kwargs)  # 执行装饰函数
         end_time = time.time()
         return res, end_time - start_time
+
     return inner
+
 
 @warp
 def get_run():
     time.sleep(2)
     print('hello')
     return 'running....'
+
 
 a = get_run()
 print(a)
