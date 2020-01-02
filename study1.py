@@ -66,26 +66,42 @@
 ########################################
 
 # 装饰器第二个例子,计算程序运行时间
-import time
-
-
-def warp(func):
-    def inner(*args, **kwargs):
-        start_time = time.time()
-        res = func(*args, **kwargs)  # 执行装饰函数
-        end_time = time.time()
-        return res, end_time - start_time
-
-    return inner
-
-
-@warp
-def get_run():
-    time.sleep(2)
-    print('hello')
-    return 'running....'
-
-
-a = get_run()
-print(a)
-
+# import time
+#
+# def warp(func):
+#     def inner(*args, **kwargs):
+#         start_time = time.time()
+#         res = func(*args, **kwargs)  # 执行装饰函数
+#         end_time = time.time()
+#         return res, end_time - start_time
+#
+#     return inner
+#
+# @warp
+# def get_run():
+#     time.sleep(2)
+#     print('hello')
+#     return 'running....'
+#
+#
+# a = get_run()
+# print(a)
+##################################
+#类的讲解
+#属性:变量,方法:函数
+#self是当前实例(对象)
+#注意:定义了类Person,如果不去实例化它,这个类不会存在内存里面的
+class Person:
+    name = 'Jack'
+    #init作用是初始化一些属性
+    #传递参数有两种方式:
+    #1,可以在公共的init中传递参数例如desc,传递变量在初始化时传入p=Person('地址')
+    #2,可以在对应的方法get_desc中传递参数例如desc
+    def __init__(self,address):#在实例化时候会去执行init初始化,然后在其他方法里就可以用这个score属性了
+        self.score = 99
+        self.address = address
+    def get_desc(self,desc):
+        return 'My name is {}, score is {}, {}, {}'.format(self.name, self.score, desc, self.address)
+p = Person('shenzhen')
+print(p.name)
+print(p.get_desc('xxoo'))
