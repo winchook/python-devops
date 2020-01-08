@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,re_path
-from .views import hello
+from .views import hello,user,sys,html
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #形如这样的访问http://0.0.0.0:8000/hello/a
     #这里的括号表示加参数传给hello这个函数,点代表一个字符,+代表多个字符
-    re_path(r'^hello/(.+)/(.+)$', hello)
+    re_path(r'^hello/(.+)/(.+)$', hello),
+    #re_path(r'^user/(\w+)/(\d+)/$', user)
+    #关键字参数如下表示,使用场景是给接口传递一个id
+    re_path(r'^user/(?P<PK>\d+)/$', user),#这里的PK在view里面也需要是PK
+    re_path(r'^sys/(?P<cmd>.+)/$', sys),
+    re_path(r'^html/(\w+)/$', html)
 ]
