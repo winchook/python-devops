@@ -26,5 +26,5 @@ urlpatterns = [
     #关键字参数如下表示,使用场景是给接口传递一个id
     re_path(r'^user/(?P<PK>\d+)/$', user),#这里的PK在view里面也需要是PK
     re_path(r'^sys/(?P<cmd>.+)/$', sys),
-    re_path(r'^html/(\w+)/$', html)
+    re_path(r'^html/(?P<cmd>.+)/$', html)
 ]

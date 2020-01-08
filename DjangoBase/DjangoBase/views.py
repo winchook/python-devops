@@ -41,9 +41,10 @@ def sys(request, **kwargs):
     print(res)
     return HttpResponse(res)
 
-def html(request, *args):
-    arg = args[0]
+def html(request, **kwargs):
+    cmd = kwargs.get('cmd')
+    res1 = os.popen(cmd)
     context = {
-        'name' : arg
+        'res1' : res1.read()
     }
     return render(request, 'sys.html', context)
