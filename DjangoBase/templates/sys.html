@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{# 覆盖了父页面base.html的title #}
+{% block title %} <title>sys-title</title> {% endblock %}
+{# 覆盖了父页面base.html的content #}
+{% block content %}
 <p>CCIE {{ name }}</p>
 <pre>{{ res1 }}</pre>
-</body>
-</html>
+{% endblock %}
