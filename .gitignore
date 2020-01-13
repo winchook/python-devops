@@ -14,3 +14,4 @@ DjangoBase/.idea/remote-mappings.xml
 DjangoBase/.idea/vcs.xml
 DjangoBase/.idea/workspace.xml
 DjangoBase/.idea
+db.sqlite3

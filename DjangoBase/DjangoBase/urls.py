@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,re_path
-from .views import hello,user,sys,html
+from .views import hello
+#from .views import user,sys,html
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,7 +25,7 @@ urlpatterns = [
     re_path(r'^hello/(.+)/(.+)$', hello.as_view()),
     #re_path(r'^user/(\w+)/(\d+)/$', user)
     #关键字参数如下表示,使用场景是给接口传递一个id
-    re_path(r'^user/(?P<PK>\d+)/$', user),#这里的PK在view里面也需要是PK
-    re_path(r'^sys/(?P<cmd>.+)/$', sys),
-    re_path(r'^html/(?P<cmd>.+)/$', html)
+    #re_path(r'^user/(?P<PK>\d+)/$', user),#这里的PK在view里面也需要是PK
+    #re_path(r'^sys/(?P<cmd>.+)/$', sys),
+    #re_path(r'^html/(?P<cmd>.+)/$', html)
 ]
