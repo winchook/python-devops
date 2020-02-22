@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,re_path
+from django.urls import path,re_path,include
 from .views import * #这里的*表示导入所有的视图
 #from .views import user,sys,html
 
@@ -34,5 +34,8 @@ urlpatterns = [
     re_path(r'get_sys_func', render_sys),
 
     #访问方式: http://106.53.124.157:8000/get_sys_class
-    re_path(r'get_sys_class', RenderSys.as_view())
+    re_path(r'get_sys_class', RenderSys.as_view()),
+
+    #如下表示当浏览器访问包含cmdb链接时,将路由转至cmdb应用下的urls文件
+    path('cmdb/', include('cmdb.urls'))
 ]
