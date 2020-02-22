@@ -23,3 +23,11 @@ class IdcView(TemplateView):
         pk = kwargs.get('pk')
         Idc.objects.filter(id=pk).delete()
         return JsonResponse({})
+
+    #使用put方法对数据库进行修改操作
+    def put(self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
+        data = QueryDict(request.body).dict()
+        print(pk,data)
+        Idc.objects.filter(id=pk).update(**data)
+        return JsonResponse({})
