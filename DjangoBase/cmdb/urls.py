@@ -5,4 +5,5 @@ from .views import * #这里的*表示导入所有的视图
 
 urlpatterns = [
     re_path(r'idcs/$', IdcView.as_view()),
+    re_path(r'idcs/(?P<pk>\d+)/$', IdcView.as_view()),
 ]

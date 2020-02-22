@@ -14,4 +14,12 @@ class IdcView(TemplateView):
         print(data)
         #写入到数据库
         Idc.objects.create(**data)
+        #返回前端暂时为空
+        return JsonResponse({})
+
+    #使用delete方法对数据库进行删除操作
+    def delete(self, request, *args, **kwargs):
+        print(kwargs)
+        pk = kwargs.get('pk')
+        Idc.objects.filter(id=pk).delete()
         return JsonResponse({})
