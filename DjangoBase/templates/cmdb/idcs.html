@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-123
+{% for idc in idcs %}
+    <p>{{ idc.id }} {{ idc.name }} {{ idc.remark }}</p>
+{% endfor %}
 </body>
 </html>

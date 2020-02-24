@@ -7,6 +7,10 @@ from .models import *
 class IdcView(TemplateView):
     template_name = 'cmdb/idcs.html'
 
+    def get_context_data(self, **kwargs):
+        idcs = Idc.objects.all()
+        return {'idcs':idcs}
+
     #使用post方法对数据库进行增加操作
     def post(self, request, *args, **kwargs):
         #获取数据
