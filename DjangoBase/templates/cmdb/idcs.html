@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+Django version:{{ version }}
+
 {% for idc in idcs %}
     <p>{{ idc.id }} {{ idc.name }} {{ idc.remark }}</p>
 {% endfor %}
