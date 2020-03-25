@@ -64,7 +64,7 @@ from django.http import request,QueryDict
 
 #函数视图
 def render_sys(request):
-    return render(request, 'sys.html')
+    return render(request, 'sys1.html')
 
 #类视图
 class RenderSys(TemplateView):

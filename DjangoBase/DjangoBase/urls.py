@@ -20,6 +20,10 @@ from .views import * #这里的*表示导入所有的视图
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    #访问方式:http://193.112.2.124:8000/get_sys/
+    re_path(r'get_sys/$', render_sys),
+
     #形如这样的访问http://0.0.0.0:8000/hello/a
     #这里的括号表示加参数传给hello这个函数,点代表一个字符,+代表多个字符
     #re_path(r'^hello/(.+)/(.+)$', hello.as_view()),
